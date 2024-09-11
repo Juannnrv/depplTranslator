@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <Home />
+  <div id="app">
+    <Translator />
   </div>
 </template>
 
 <script lang="ts" setup>
-import Home from './views/translateHome.vue';
+import Translator from './components/Translator.vue'; 
 </script>
 
 <style>
-/* Estilos globales */
+/* Puedes agregar estilos globales aquí si lo necesitas */
 </style>
