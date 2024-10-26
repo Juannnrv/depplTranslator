@@ -4,8 +4,8 @@ export const fetchLanguages = async () => {
   const options = {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "347f9d77aemsh69fd8070901c04cp1445c6jsndfe73e6482a7",
-      "x-rapidapi-host": "deep-translate1.p.rapidapi.com",
+      'x-rapidapi-key': '6945049258mshb1a156c47eb1f24p172a4cjsn790b765d9a6c',
+      'x-rapidapi-host': 'deep-translate1.p.rapidapi.com',
     },
   };
 
