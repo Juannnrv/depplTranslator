@@ -38,7 +38,7 @@ export const translateText = async (
   text: string,
   sourceLang: string,
   targetLang: string
-): Promise<any> => {
+): Promise<string> => {
   const url = "https://deep-translate1.p.rapidapi.com/language/translate/v2";
   const options = {
     method: "POST",
@@ -47,21 +47,17 @@ export const translateText = async (
       "x-rapidapi-host": "deep-translate1.p.rapidapi.com",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      q: text,
-      source: sourceLang,
-      target: targetLang,
-    }),
+    body: JSON.stringify({ q: text, source: sourceLang, target: targetLang }),
   };
 
   try {
     const response = await fetch(url, options);
     const result = await response.json();
     console.log("API response:", result); // Log the entire API response for debugging
-    if (result && result.data && result.data.translations) {
-      return result.data.translations.translatedText; // Adjusted to match the actual API response structure
+    const translatedText = result?.data?.translations?.translatedText;
+    if (translatedText) {
+      return translatedText;
     } else {
-      console.error("Invalid API response structure:", result); // Log the invalid structure
       throw new Error("Invalid API response structure");
     }
   } catch (error) {

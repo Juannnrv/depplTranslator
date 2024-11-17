@@ -90,8 +90,7 @@ const handleTranslate = async () => {
   isTranslating.value = true;
   errorMessage.value = '';
   try {
-    const translatedTextResult = await translateText(textToTranslate.value, sourceLang.value, targetLang.value);
-    translatedText.value = translatedTextResult;
+    translatedText.value = await translateText(textToTranslate.value, sourceLang.value, targetLang.value);
   } catch (error) {
     console.error("Error translating text:", error);
     errorMessage.value = "Error al traducir el texto. Por favor, intenta de nuevo.";
