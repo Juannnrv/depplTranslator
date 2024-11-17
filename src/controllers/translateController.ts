@@ -17,7 +17,7 @@ export const detectLanguage = async (text: string): Promise<any> => {
   const options = {
     method: "POST",
     headers: {
-      "x-rapidapi-key": "347f9d77aemsh69fd8070901c04cp1445c6jsndfe73e6482a7",
+      "x-rapidapi-key": "6945049258mshb1a156c47eb1f24p172a4cjsn790b765d9a6c",
       "x-rapidapi-host": "deep-translate1.p.rapidapi.com",
       "Content-Type": "application/json",
     },
@@ -43,7 +43,7 @@ export const translateText = async (
   const options = {
     method: "POST",
     headers: {
-      "x-rapidapi-key": "347f9d77aemsh69fd8070901c04cp1445c6jsndfe73e6482a7",
+      "x-rapidapi-key": "6945049258mshb1a156c47eb1f24p172a4cjsn790b765d9a6c",
       "x-rapidapi-host": "deep-translate1.p.rapidapi.com",
       "Content-Type": "application/json",
     },
@@ -57,7 +57,13 @@ export const translateText = async (
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    return result;
+    console.log("API response:", result); // Log the entire API response for debugging
+    if (result && result.data && result.data.translations) {
+      return result.data.translations.translatedText; // Adjusted to match the actual API response structure
+    } else {
+      console.error("Invalid API response structure:", result); // Log the invalid structure
+      throw new Error("Invalid API response structure");
+    }
   } catch (error) {
     console.error("Error translating text:", error);
     throw error;

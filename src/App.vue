@@ -9,5 +9,4 @@ import Translator from './components/Translator.vue';
 </script>
 
 <style>
-/* Puedes agregar estilos globales aquí si lo necesitas */
 </style>
